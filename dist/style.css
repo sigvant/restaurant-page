@@ -1,0 +1,279 @@
+
+:root {
+    --font-color: rgb(255, 255, 255);
+    --font-color-dark: rgb(0, 0, 0);
+    --border-color: rgb(209, 195, 0);
+    --background-light: rgba(87, 87, 87, 0.6);
+    --background-light-hover: rgba(49, 49, 49, 0.4);
+    --background-dark: rgba(12, 12, 12, 0.9);
+}
+
+/* up here we defined some CSS variables 
+to make our lives better */
+  
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+}
+
+html {
+    font-size: 55%;
+    line-height: 2.0;
+}
+
+body {
+    font-family: monospace;
+    font-size: 1.8rem;
+    color: var(--font-color);
+    background-image: url('images/background.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+header {
+    font-size: 3.0rem;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.4;
+}
+
+a {
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+button {
+    font-family: inherit;
+    color: inherit;
+    cursor: pointer;
+    border-style: none;
+    outline: none;
+}
+
+/* here is the content */
+
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+/*  here is the header  */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2.5rem;
+    background-color: var(--background-dark);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.restaurant-name {
+    margin-bottom: 1rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 8rem;
+}
+
+.button-nav {
+    padding: 1.5rem;
+    font-size: 2rem;
+    background-color: transparent;
+    border-bottom: 2px solid transparent;
+    transition: transform 0.5s;
+}
+
+.button-nav.active {
+    border-bottom: 1px solid var(--font-color);
+}
+
+.button-nav:hover {
+    transform: translateY(-20%);
+}
+
+/* here it starts the main content */
+
+.main {
+    max-width: 700px;
+    padding: 4rem;
+    margin: 6rem 0;
+    font-size: 2rem;
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+}
+
+/*  now for the home page */
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 525px;
+    width: 618px;
+    animation: fadeIn 1.5s;
+}
+
+.home p {
+    padding: 1.5rem;
+}
+
+.home img {
+    width: 300px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    opacity: 85%;
+    height: 350px;
+}
+/*  now for the menu page: Foooooooooods! */
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3.5rem;
+    animation: fadeIn 1.5s;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    padding: 4rem;
+    cursor: pointer;
+    background-color: var(--background-light);
+    transition: background-color 0.3s;
+}
+
+.menu-item:hover {
+    background-color: var(--background-light-hover);
+}
+
+.menu-item img {
+    width: 75%;
+}
+
+.menu-item h2 {
+    padding: 2.5rem;
+}
+
+.menu-item p {
+    font-size: 2.25rem;
+    text-align: center;
+}
+
+/* now for the contact page  */
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 485px;
+    width: 605px;
+    animation: fadeIn 1.0s;
+}
+
+.contact p {
+    width: 100%;
+    padding: 1rem;
+}
+
+.contact img {
+    max-height: 380px;
+    padding: 1.5rem;
+    opacity: 75%;
+}
+
+/*  and finally for the footer  */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--background-light);
+}
+
+.fa-github {
+    font-size: 1.5rem;
+}
+
+.fa-github:hover {
+    color: var(--font-color-dark);
+}
+
+/* at the end of the scrollbar  */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #222;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #444;
+}
+
+/*  for some animations and media queries */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 700px) {
+    .home,
+    .contact {
+        height: 100%;
+        width: 100%;
+    }
+
+    .menu {
+        grid-template-columns: 1fr;
+    }
+
+    .menu img {
+        width: 50%;
+    }
+}
+
+@media (max-width: 500px) {
+    html {
+        font-size: 55.5%;
+    }
+
+    .home img {
+        width: 75%;
+    }
+}
